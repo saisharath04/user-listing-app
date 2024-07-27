@@ -1,0 +1,13 @@
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.title_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

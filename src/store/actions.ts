@@ -1,0 +1,2 @@
+export const USER_LIST_SLICE = "USER_LIST_SLICE";
+export const USER_LIST_THUNK = "USER_LIST_THUNK";
