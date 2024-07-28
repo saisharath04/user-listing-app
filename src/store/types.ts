@@ -1,8 +1,16 @@
 export interface UserListPayloadType {
-  stateCode?: string;
-  gender?: string;
-  page: number
+  key?: "gender" | "address.stateCode";
+  value?: string;
+  limit: 10;
+  skip: number;
 }
+
+export type FiltersType = {
+  gender?: string;
+  stateCode?: string;
+  limit: 10;
+  skip: number;
+};
 
 export interface UserListResponseType {
   users: User[];
@@ -99,6 +107,6 @@ export interface Crypto {
 }
 
 export type GenericStoreType = {
-          isLoading: boolean;
-        isError: boolean;
-}
+  isLoading: boolean;
+  isError: boolean;
+};
