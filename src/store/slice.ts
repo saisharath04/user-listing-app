@@ -26,7 +26,7 @@ const userListSlice = createSlice({
     });
 
     builder.addCase(userListAsyncThunk.fulfilled, (state, action) => {
-      state.data = action?.payload?.data;
+      state.data = action?.payload;
       state.isLoading = false;
       state.isError = false;
     });
