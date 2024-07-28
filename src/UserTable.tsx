@@ -86,7 +86,7 @@ const UserTable = () => {
   return (
     <div className="container">
       <div className="title_container">
-        <Title level={2}>Students</Title>
+        <Title level={2}>Employees</Title>
         <div>
           <Select
             showSearch
@@ -133,9 +133,13 @@ const UserTable = () => {
               <Spin style={{ display: "flex", justifyContent: "center" }} />
             }
             endMessage={
-              <p style={{ textAlign: "center" }}>
-                <b>Yay! You have seen it all</b>
-              </p>
+              <>
+                {
+                  <p style={{ textAlign: "center" }}>
+                    <b>Yay! You have seen it all</b>
+                  </p>
+                }
+              </>
             }
             refreshFunction={() => <Spin />}
             pullDownToRefresh
