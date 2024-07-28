@@ -86,7 +86,7 @@ const UserTable = () => {
   return (
     <div className="container">
       <div className="title_container">
-        <Title level={2}>Employees</Title>
+        <Title level={2}>Students</Title>
         <div>
           <Select
             showSearch
