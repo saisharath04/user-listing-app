@@ -134,7 +134,7 @@ const UserTable = () => {
             }
             endMessage={
               <>
-                {
+                {response?.users?.length !== 0 &&
                   <p style={{ textAlign: "center" }}>
                     <b>Yay! You have seen it all</b>
                   </p>
