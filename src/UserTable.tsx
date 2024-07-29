@@ -1,7 +1,7 @@
 import { Select, Spin, Table, Typography } from "antd";
 import { useCallback, useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./UserTable.css";
 import { columns } from "./Columns";
 import { stateList } from "./store/mockData";
@@ -29,6 +29,12 @@ const UserTable = () => {
   });
 
   const dispatch = useDispatch();
+
+  const { isLoading } = useSelector((state: any) => {
+    return {
+      isLoading: state?.userListReducer?.isLoading,
+    };
+  });
 
   const fetchUserList = useCallback(
     (newFilters = filters) => {
@@ -82,7 +88,7 @@ const UserTable = () => {
 
   const filterOptionHandler = (input: string, option: any) =>
     option.label?.toLowerCase().includes(input?.toLowerCase());
-
+    
   return (
     <div className="container">
       <div className="title_container">
@@ -134,11 +140,11 @@ const UserTable = () => {
             }
             endMessage={
               <>
-                {response?.users?.length !== 0 &&
+                {response?.users?.length !== 0 && (
                   <p style={{ textAlign: "center" }}>
                     <b>Yay! You have seen it all</b>
                   </p>
-                }
+                )}
               </>
             }
             refreshFunction={() => <Spin />}
@@ -146,6 +152,7 @@ const UserTable = () => {
             pullDownToRefreshThreshold={10}
           >
             <Table
+              loading={isLoading && response?.users?.length === 0}
               columns={columns}
               dataSource={response?.users}
               pagination={false}
